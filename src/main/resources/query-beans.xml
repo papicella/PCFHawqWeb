@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  	Copyright (c) 2013 GoPivotal, Inc. All Rights Reserved.
+
+	This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; only version 2 of the License, and no
+    later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+	The full text of the GPL is provided in the COPYING file.
+ -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="todaysDate" class="pivotal.au.fe.greenplumweb.reports.GenericQuery">
+        <property name="queryDescription">
+            <value>Todays Date</value>
+        </property>
+        <property name="query">
+            <value><![CDATA[
+                select now()
+        ]]></value>
+        </property>
+    </bean>
+
+    <bean id="viewTablesBySchema" class="pivotal.au.fe.greenplumweb.reports.ParameterQuery">
+        <property name="queryDescription">
+            <value>View Tables by Schema</value>
+        </property>
+        <property name="paramMap">
+            <map>
+                <entry key="1" value="Schema Name" />
+            </map>
+        </property>
+        <property name="query">
+            <value><![CDATA[
+                select * from pg_tables where schemaname = ?
+                order by schemaname, tablename
+            ]]></value>
+        </property>
+    </bean>
+
+    <bean id="viewTablesByOwner" class="pivotal.au.fe.greenplumweb.reports.ParameterQuery">
+        <property name="queryDescription">
+            <value>View Tables by Owner</value>
+        </property>
+        <property name="paramMap">
+            <map>
+                <entry key="1" value="Table Owner" />
+            </map>
+        </property>
+        <property name="query">
+            <value><![CDATA[
+                select * from pg_tables where tableowner = ?
+                order by schemaname, tablename
+            ]]></value>
+        </property>
+    </bean>
+
+    <!-- Query List of About DB Queries-->
+    <bean id="queryListAbout" class="pivotal.au.fe.greenplumweb.reports.QueryList">
+        <property name="description">
+            <value>Greenplum Queries</value>
+        </property>
+        <property name="queryList">
+            <map>
+                <entry key="todaysDate">
+                    <value>Today's date</value>
+                </entry>
+                <entry key="viewTablesBySchema">
+                    <value>View All Tables by Schema</value>
+                </entry>
+                <entry key="viewTablesByOwner">
+                    <value>View All Tables by Table Owner</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>

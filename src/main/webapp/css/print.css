@@ -1,0 +1,88 @@
+/*
+  	Copyright (c) 2013 GoPivotal, Inc. All Rights Reserved.
+
+	This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; only version 2 of the License, and no
+    later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+	The full text of the GPL is provided in the COPYING file.
+*/
+.print_ignore {
+    display: none;
+}
+
+body, table, th, td {
+    color:             #000000;
+    background-color:  #ffffff;
+    font-size:         8pt;
+}
+
+img {
+    border: 0;
+}
+
+table, th, td {
+    border-width:      0.1em;
+    border-color:      #000000;
+    border-style:      solid;
+}
+
+table {
+    border-collapse:   collapse;
+    border-spacing:    0;
+}
+
+th, td {
+    padding:           0.2em;
+}
+
+th {
+    font-weight:       bold;
+    background-color:  #e5e5e5;
+}
+
+@media print {
+    .print_ignore {
+        display: none;
+    }
+
+    body, table, th, td {
+        color:             #000000;
+        background-color:  #ffffff;
+        font-size:         8pt;
+    }
+
+    img {
+        border: 0;
+    }
+
+    table, th, td {
+        border-width:      1px;
+        border-color:      #000000;
+        border-style:      solid;
+    }
+
+    table {
+        border-collapse:   collapse;
+        border-spacing:    0;
+    }
+
+    th, td {
+        padding:           0.2em;
+    }
+
+    th {
+        font-weight:       bold;
+        background-color:  #e5e5e5;
+    }
+}
