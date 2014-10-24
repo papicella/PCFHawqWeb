@@ -281,6 +281,16 @@
     </c:forEach>
 </c:if>
 
+<c:url var="csvurl" value="/PCFHawq-Web/query">
+    <c:param name="action" value="export" />
+    <c:param name="query" value="${querysql}" />
+</c:url>
+
+<c:url var="jsonurl" value="/PCFHawq-Web/query">
+    <c:param name="action" value="export_json" />
+    <c:param name="query" value="${querysql}" />
+</c:url>
+
 <c:if test="${!empty queryResults}">
     <c:choose>
         <c:when test="${!empty queryResultCount}">
@@ -300,6 +310,19 @@
         <tbody>
         <tr class="odd">
             <td><b>PCFHawq*Web&gt;</b> ${querysql}</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="${csvurl}" title="Export Data to CSV">
+                    <img class="icon" src="../themes/original/img/b_save.png" alt="Export Data to CSV" border="0" />
+                    Save as CSV
+                </a>
+                &nbsp; | &nbsp;
+                <a href="${jsonurl}" title="Export Data to JSON">
+                    <img class="icon" src="../themes/original/img/b_save.png" alt="Export Data to JSON" border="0" />
+                    Save as JSON
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -341,11 +364,32 @@
             <c:when test="${fn:endsWith(item.key,'SELECT')}">
                 <fieldset>
                     <legend>Query Result</legend>
+                    <c:url var="csvurl2" value="/PCFHawq-Web/query">
+                        <c:param name="action" value="export" />
+                        <c:param name="query" value="${item.value[0]}" />
+                    </c:url>
+                    <c:url var="jsonurl2" value="/PCFHawq-Web/query">
+                        <c:param name="action" value="export_json" />
+                        <c:param name="query" value="${item.value[0]}" />
+                    </c:url>
                     <table id="table_results" class="data">
                         <tbody>
                         <tr class="odd">
                             <c:set var="sql"></c:set>
                             <td><b>PCFHawq*Web&gt;</b> ${item.value[0]} </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="${csvurl2}" title="Export Data to CSV">
+                                    <img class="icon" src="../themes/original/img/b_save.png" alt="Export Data to CSV" border="0" />
+                                    Save as CSV
+                                </a>
+                                &nbsp; | &nbsp;
+                                <a href="${jsonurl2}" title="Export Data to JSON">
+                                    <img class="icon" src="../themes/original/img/b_save.png" alt="Export Data to JSON" border="0" />
+                                    Save as JSON
+                                </a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
