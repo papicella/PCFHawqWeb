@@ -2,6 +2,11 @@
 
 ![alt tag](https://dl.dropboxusercontent.com/u/15829935/fe-demos/PCFHawqWeb/images/PCFHawq.png)
 
+Pivotal PCFHawq*Web is  abrowser based schema adminstration tool for HAWQ within Pivotal Cloud Foundry 1.3. It supports 
+auto binding to a PHD service but can run stand alone outside of PCF. If yu don't bind the application to a PHD instance it 
+presnets a login page to allow you to manually connect to HAWQ within PCF. When bound to a PHD service it will connect using the
+VCAP_SERVICES credentials automatically for you.
+
 <h2>Download</h2>
 
 Download PCFHawq*Web using the link below. 
@@ -86,3 +91,5 @@ urls: pcfhawq.apj1.fe.gopivotal.com
 ![alt tag](https://dl.dropboxusercontent.com/u/15829935/fe-demos/PCFHawqWeb/images/Screen%20Shot%202014-10-03%20at%206.53.18%20pm.png)
 
 ![alt tag](https://dl.dropboxusercontent.com/u/15829935/fe-demos/PCFHawqWeb/images/Screen%20Shot%202014-10-03%20at%206.53.42%20pm.png)
+
+![alt tag](https://dl.dropboxusercontent.com/u/15829935/fe-demos/PCFHawqWeb/images/image2.png)
