@@ -2,14 +2,20 @@
 
 ![alt tag](https://dl.dropboxusercontent.com/u/15829935/fe-demos/PCFHawqWeb/images/PCFHawq.png)
 
-Pivotal PCFHawq*Web is  abrowser based schema adminstration tool for HAWQ within Pivotal Cloud Foundry 1.3. It supports 
+Pivotal PCFHawq*Web is a browser based schema administration tool for HAWQ within Pivotal Cloud Foundry 1.3. It supports 
 auto binding to a PHD service but can run stand alone outside of PCF. If yu don't bind the application to a PHD instance it 
-presnets a login page to allow you to manually connect to HAWQ within PCF. When bound to a PHD service it will connect using the
-VCAP_SERVICES credentials automatically for you.
+presents a login page to allow you to manually connect to HAWQ within PCF. When bound to a PHD service it will connect using the
+VCAP_SERVICES credentials automatically for you. It supports the following features
+
+<ul>
+ <li>Browse tables/views/external tables</li>
+ <li>Save Query Results in CSV or JSON format</li>
+ <li>SQL Worksheet to load/execute SQL DML/DDL statements</li>
+</ul>
 
 <h2>Download</h2>
 
-Download PCFHawq*Web using the link below. 
+- Download PCFHawq*Web using the link below. 
 
 <a href="https://dl.dropboxusercontent.com/u/15829935/fe-demos/PCFHawqWeb/pcfhawq.war">pcfhawq.war</a>
 
@@ -17,9 +23,9 @@ Download PCFHawq*Web using the link below.
 
 Note: You should deploy PCFHawq*Web bound to a PHD service and it will automatically connect to the HAWQ instance for you.
 
-2. Download WAR via link above
+- Download WAR via link above
 
-2. Create a manaifest file as shown below
+- Create a manaifest file as shown below
 
 ```
 applications:
@@ -33,7 +39,7 @@ applications:
    - phd-dev
 ```
 
-3. Deploy as shown below.
+- Deploy as shown below.
 
 ```
 [Fri Oct 03 18:44:11 papicella@:~/cfapps/pcfhawq-web ] $ cf push -f manifest-apj1.yml
