@@ -50,6 +50,17 @@ public class LoginController
                     String pcfurl = (String) HawqXDURI.get("uri");
 
                     int qtnMarkStartPos = pcfurl.indexOf("?");
+
+                    // If no credentials found pre-populate the URL and show the login screen instead
+                    if (qtnMarkStartPos <= 0)
+                    {
+                        logger.debug("No credentials found in the URL string. Redirecting to the login page.");
+                        Login login = new Login();
+                        login.setUrl(pcfurl);
+                        model.addAttribute("loginAttribute", login);
+                        return "loginpage";
+                    }
+
                     String s = pcfurl.substring(qtnMarkStartPos + 1);
 
                     // get user
