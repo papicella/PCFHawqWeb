@@ -64,15 +64,15 @@ Supports Pivotal HAWQ within PHD
  <table class="formlayout">
   <tr>
    <td align="right">Username:</td>
-   <td><form:input type="text" path="username" maxlength="30" size="60" value=""/></td>
+   <td><form:input type="text" path="username" maxlength="30" size="60"/></td>
   </tr>
   <tr>
    <td align="right">Password:</td>
-   <td><form:input type="password" path="password" maxlength="30" size="60" value=""/></td>
+   <td><form:input type="password" path="password" maxlength="30" size="60"/></td>
   </tr>
   <tr>
    <td align="right">Url:</td>
-   <td><form:input type="text" path="url" maxlength="450" size="60" value="jdbc:postgresql://localhost:5432/gpadmin" /></td>
+   <td><form:input type="text" path="url" maxlength="450" size="60"/></td>
   </tr>
  </table>
 </fieldset>
